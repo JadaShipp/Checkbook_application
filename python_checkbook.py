@@ -1,6 +1,15 @@
 # python checkbook
 
 def get_balance():
+    transactions = get_transactions()
+    total = 0
+    for transaction in transactions:
+        transaction = transaction.replace("\n","")
+        transaction = float(transaction)
+        total = total + transaction
+    return total
+
+def get_transactions():
     with open("transactions.txt", "r") as f:
         balance = f.readlines()
         return(balance)
@@ -47,9 +56,9 @@ while True:
     if user_choice == 1:
         print(get_balance())
     elif user_choice == 2:
-        withdraw()
+        print(withdraw())
     elif user_choice == 3:
-        deposit()
+        print(deposit())
     elif user_choice == 4:
         user_choice = input("Do you want to continue? Type y or Yes. ")
         wants_to_stop = user_choice.lower() not in ["y", "yes"]
