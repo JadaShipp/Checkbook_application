@@ -1,5 +1,10 @@
 # python checkbook
 
+def validate_input():
+    while user_choice.isdigit() == False:
+        print("Invalid. Input must be a number")
+        user_choice = input("Type choice here : ")
+
 def get_balance():
     transactions = get_transactions()
     total = 0
@@ -15,7 +20,9 @@ def get_transactions():
         return(balance)
 
 def withdraw():
-    amount = -1*float(input("How much would you like to withdraw? "))
+    amount = input("How much would you like to withdraw? ")
+    if amount.isdigit() == False:
+        amount = input("How much would you like to withdraw? ")
     print()
     with open("transactions.txt", "a") as f:
         f.write(f"\n{amount}")
@@ -45,8 +52,12 @@ while True:
     print("To make a deposit, type 3")
     print("To exit this application, type 4")
 
-
     user_choice = input("Type choice here : ")
+
+    while user_choice.isdigit() == False:
+            print("Invalid. Input must be effing number")
+            user_choice = input("Type choice here : ")
+    
     while user_choice.isdigit() == False or int(user_choice) > 5 or int(user_choice) < 0:
         print(f"{user_choice} is an invalid input. Please input a choice from the menu")
         user_choice = input("Type choice here : ")
