@@ -5,7 +5,7 @@
 
 
 def get_balance():
-    f = open("transactions.txt", "r+")
+    f = open("transactions.txt", "r")
     transactions = f.readlines()                                                                                                                                                                      
     total = 0
     for transaction in transactions:
@@ -14,10 +14,10 @@ def get_balance():
         total = total + transaction
     return total
 
-# def get_transactions():
-#     with open("transactions.txt", "a+") as f:
-#         balance = f.readlines()
-#         return balance
+def get_transactions():
+    with open("transactions.txt", "a+") as f:
+        balance = f.readlines()
+        return balance
 
 def withdraw():
     amount = float(input("How much would you like to withdraw? "))
