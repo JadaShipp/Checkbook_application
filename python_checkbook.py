@@ -1,12 +1,12 @@
-# python checkbook
+# def validate_input():
+#     while user_choice.isdigit() == False:
+#         print("Invalid. Input must be a number")
+#         user_choice = input("Type choice here : ")
 
-def validate_input():
-    while user_choice.isdigit() == False:
-        print("Invalid. Input must be a number")
-        user_choice = input("Type choice here : ")
 
 def get_balance():
-    transactions = get_transactions()
+    f = open("transactions.txt", "r+")
+    transactions = f.readlines()                                                                                                                                                                      
     total = 0
     for transaction in transactions:
         transaction = transaction.replace("\n","")
@@ -14,15 +14,13 @@ def get_balance():
         total = total + transaction
     return total
 
-def get_transactions():
-    with open("transactions.txt", "r") as f:
-        balance = f.readlines()
-        return(balance)
+# def get_transactions():
+#     with open("transactions.txt", "a+") as f:
+#         balance = f.readlines()
+#         return balance
 
 def withdraw():
-    amount = input("How much would you like to withdraw? ")
-    if amount.isdigit() == False:
-        amount = input("How much would you like to withdraw? ")
+    amount = float(input("How much would you like to withdraw? "))
     print()
     with open("transactions.txt", "a") as f:
         f.write(f"\n{amount}")
@@ -33,6 +31,7 @@ def deposit():
     print()
     with open("transactions.txt", "a") as f:
         f.write(f"\n{amount}")
+    
         return amount
 
 
@@ -54,14 +53,14 @@ while True:
 
     user_choice = input("Type choice here : ")
 
-    while user_choice.isdigit() == False:
-            print("Invalid. Input must be effing number")
-            user_choice = input("Type choice here : ")
-    
-    while user_choice.isdigit() == False or int(user_choice) > 5 or int(user_choice) < 0:
-        print(f"{user_choice} is an invalid input. Please input a choice from the menu")
+    print()
+    print()
+
+    while user_choice.isdigit() == False or int(user_choice) >= 5 or int(user_choice) < 0:
+        print(f"{user_choice} is an invalid choice. Please input a choice from the menu")
         user_choice = input("Type choice here : ")
     print()
+
     user_choice = int(user_choice)
     if user_choice == 1:
         print(f"Your current balance is ${get_balance()}")
