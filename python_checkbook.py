@@ -13,6 +13,7 @@ def get_balance():
         transaction = float(transaction)
         total = total + transaction
     return total
+    print()
 
 def get_transactions():
     with open("transactions.txt", "a+") as f:
