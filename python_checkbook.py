@@ -5,7 +5,7 @@
 
 
 def get_balance():
-    f = open("transactions_page.txt", "r")
+    f = open("transactions_list.txt", "r")
     transactions = f.readlines()                                                                                                                                                                      
     total = 0
     for transaction in transactions:
@@ -13,24 +13,23 @@ def get_balance():
         transaction = float(transaction)
         total = total + transaction
     return total
-    print()
 
 def get_transactions():
-    with open("transactions_page.txt", "a+") as f:
+    with open("transactions_list.txt", "a") as f:
         balance = f.readlines()
         return balance
 
 def withdraw():
     amount = float(input("How much would you like to withdraw? "))
     print()
-    with open("transactions_page.txt", "a") as f:
+    with open("transactions_list.txt", "a") as f:
         f.write(f"\n{amount}")
         return amount
 
 def deposit():
     amount = float(input("How much would you like to deposit? "))
     print()
-    with open("transactions_page.txt", "a") as f:
+    with open("transactions_list.txt", "a") as f:
         f.write(f"\n{amount}")
     
         return amount
@@ -60,7 +59,7 @@ while True:
     while user_choice.isdigit() == False or int(user_choice) >= 5 or int(user_choice) < 0:
         print(f"{user_choice} is an invalid choice. Please input a choice from the menu")
         user_choice = input("Type choice here : ")
-    print()
+
 
     user_choice = int(user_choice)
     if user_choice == 1:
