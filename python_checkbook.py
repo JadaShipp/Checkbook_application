@@ -1,7 +1,8 @@
-# def validate_input():
-#     while user_choice.isdigit() == False:
-#         print("Invalid. Input must be a number")
-#         user_choice = input("Type choice here : ")
+# I want to use this to validat the input and stop users from being able to input a string. 
+# I also considered simply exiting the app if a string in input vs. forcing a valid input but that feels a little hacky
+    while user_choice.isdigit() == False:
+        print("Invalid. Input must be a number")
+        user_choice = input("Type choice here : ")
 
 
 def get_balance():
@@ -62,6 +63,7 @@ while True:
 
 
     user_choice = int(user_choice)
+
     if user_choice == 1:
         print(f"Your current balance is ${get_balance()}")
     elif user_choice == 2:
