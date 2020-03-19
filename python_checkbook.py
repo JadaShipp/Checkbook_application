@@ -5,6 +5,7 @@
     #     user_choice = input("Type choice here : ")
 
 
+
 def get_balance():
     f = open("transactions_list.txt", "r")
     transactions = f.readlines()                                                                                                                                                                      
@@ -28,12 +29,22 @@ def withdraw():
         return amount
 
 def deposit():
-    amount = float(input("How much would you like to deposit? "))
+    amount = input("How much would you like to deposit? ")
     print()
-    with open("transactions_list.txt", "a") as f:
-        f.write(f"\n{amount}")
-    
-        return amount
+    while amount.isdigit() == False:
+        print(f"{amount} is an invalid choice. Please input a number ")
+        amount = input("Input here ")
+        amount = float(amount)
+        with open("transactions_list.txt", "a") as f:
+            f.write(f"\n{amount}")
+            return amount
+
+# def deposit():
+#     amount = float(input("How much would you like to deposit? "))
+#     print()
+#     with open("transactions_list.txt", "a") as f:
+#         f.write(f"\n{amount}")
+#         return amount
 
 
 print()
