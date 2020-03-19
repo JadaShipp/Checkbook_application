@@ -22,8 +22,12 @@ def get_transactions():
         return balance
 
 def withdraw():
-    amount = float(input("How much would you like to withdraw? "))
+    amount = input("How much would you like to withdraw? ")
     print()
+    while amount.isdigit() == False:
+        print(f"{amount} is invalid. Please input a number ")
+        amount = input("Input here ")
+    amount = float(amount)
     with open("transactions_list.txt", "a") as f:
         f.write(f"\n{amount}")
         return amount
@@ -34,17 +38,11 @@ def deposit():
     while amount.isdigit() == False:
         print(f"{amount} is invalid. Please input a number ")
         amount = input("Input here ")
-        amount = float(amount)
-        with open("transactions_list.txt", "a") as f:
-            f.write(f"\n{amount}")
-            return amount
+    amount = float(amount)
+    with open("transactions_list.txt", "a") as f:
+        f.write(f"\n{amount}")
+        return amount
 
-# def deposit():
-#     amount = float(input("How much would you like to deposit? "))
-#     print()
-#     with open("transactions_list.txt", "a") as f:
-#         f.write(f"\n{amount}")
-#         return amount
 
 
 print()
