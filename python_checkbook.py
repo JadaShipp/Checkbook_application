@@ -32,7 +32,7 @@ def deposit():
     amount = input("How much would you like to deposit? ")
     print()
     while amount.isdigit() == False:
-        print(f"{amount} is an invalid choice. Please input a number ")
+        print(f"{amount} is invalid. Please input a number ")
         amount = input("Input here ")
         amount = float(amount)
         with open("transactions_list.txt", "a") as f:
