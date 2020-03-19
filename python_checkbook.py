@@ -1,8 +1,8 @@
 # I want to use this to validat the input and stop users from being able to input a string. 
 # I also considered simply exiting the app if a string in input vs. forcing a valid input but that feels a little hacky
-    while user_choice.isdigit() == False:
-        print("Invalid. Input must be a number")
-        user_choice = input("Type choice here : ")
+    # while user_choice.isdigit() == False:
+    #     print("Invalid. Input must be a number")
+    #     user_choice = input("Type choice here : ")
 
 
 def get_balance():
